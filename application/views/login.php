@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 text-center mt-5 mb-3">
                 <img src="<?= base_url('assets/img/jms2.png'); ?>" class="login" />
-                <h3 class="text-white mt-2">Aplikasi Persediaan Barang PT Jembar Mukti Sedaya</h3>
+                <h3 class="text-white mt-2">Aplikasi Persediaan Barang Gudang PT Jembar Mukti Sedaya</h3>
 <br><center><p></p></center>
 
                 <?php if ($this->session->flashdata('alert')) : ?>
