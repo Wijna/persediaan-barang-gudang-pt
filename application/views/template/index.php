@@ -874,11 +874,23 @@
                             });
                         }
 
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        swal({
+                            title: "Error!",
+                            text: "Data supplier gagal dihapus",
+                            type: "error",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }, function() {
+                            swal.close();
+                        });
                     }
                 });
             });
         }
-  
+
         function hapus_barang(id) {
             swal({
                 title: 'Apakah anda yakin akan menghapus data ini ?',
@@ -965,7 +977,6 @@
                         csrf_token: csrf_token
                     },
                     success: function(obj) {
-
                         var a = $.parseJSON(obj);
 
                         if (a.message == 'success') {
@@ -978,7 +989,6 @@
                                 timer: 2000
                             }, function() {
                                 swal.close();
-
                                 tabel.ajax.reload(null, false);
                             });
                         } else {
@@ -993,11 +1003,23 @@
                                 swal.close();
                             });
                         }
-
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        swal({
+                            title: "Error!",
+                            text: "Data jenis gagal dihapus",
+                            type: "error",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }, function() {
+                            swal.close();
+                        });
                     }
                 });
             });
         }
+
 
         function hapus_satuan(id) {
             swal({
@@ -1019,7 +1041,6 @@
                         csrf_token: csrf_token
                     },
                     success: function(obj) {
-
                         var a = $.parseJSON(obj);
 
                         if (a.message == 'success') {
@@ -1032,7 +1053,6 @@
                                 timer: 2000
                             }, function() {
                                 swal.close();
-
                                 tabel.ajax.reload(null, false);
                             });
                         } else {
@@ -1047,11 +1067,23 @@
                                 swal.close();
                             });
                         }
-
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        swal({
+                            title: "Error!",
+                            text: "Data satuan gagal dihapus",
+                            type: "error",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }, function() {
+                            swal.close();
+                        });
                     }
                 });
             });
         }
+
 
         function hapus_lokasi(id) {
             swal({
@@ -1073,7 +1105,6 @@
                         csrf_token: csrf_token
                     },
                     success: function(obj) {
-
                         var a = $.parseJSON(obj);
 
                         if (a.message == 'success') {
@@ -1086,7 +1117,6 @@
                                 timer: 2000
                             }, function() {
                                 swal.close();
-
                                 tabel.ajax.reload(null, false);
                             });
                         } else {
@@ -1101,7 +1131,18 @@
                                 swal.close();
                             });
                         }
-
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        swal({
+                            title: "Error!",
+                            text: "Data lokasi gagal dihapus",
+                            type: "error",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }, function() {
+                            swal.close();
+                        });
                     }
                 });
             });

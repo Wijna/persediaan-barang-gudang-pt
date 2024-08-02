@@ -312,7 +312,7 @@ class Barang_keluar extends CI_Controller
             $this->form_validation->set_rules(
                 'id',
                 'Barang',
-                'required|min_length[1]|max_length[6]',
+                'required|min_length[3]|max_length[6]',
                 array(
                     'required' => '{field} wajib dipilih',
                     'min_length' => '{field} tidak valid',
@@ -376,11 +376,11 @@ class Barang_keluar extends CI_Controller
             $this->form_validation->set_rules(
                 'id',
                 'Barang',
-                'required|min_length[4]|max_length[6]',
+                'required|min_length[3]',
                 array(
                     'required' => '{field} wajib dipilih',
                     'min_length' => 'Isi {field} tidak valid',
-                    'max_length' => 'Isi {field} tidak valid',
+                    // 'max_length' => 'Isi {field} tidak valid',
                 )
             );
 
@@ -591,7 +591,7 @@ class Barang_keluar extends CI_Controller
             $this->form_validation->set_rules(
                 'id',
                 'Barang',
-                'required|min_length[4]|max_length[6]',
+                'required|min_length[3]|max_length[6]',
                 array(
                     'required' => '{field} wajib dipilih',
                     'min_length' => 'Isi {field} tidak valid',
@@ -722,8 +722,8 @@ class Barang_keluar extends CI_Controller
                 $button = '';
                 if ($this->session->userdata('level') == 'admin' || $this->session->userdata('UserID') == $i->id_user) :
 
-                    // $button .= '<a href="' . site_url('edit_barang_keluar/' . $i->id_barang_keluar) . '" class="btn btn-warning btn-sm text-white">Edit</a>
-                    //     <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_keluar(\'' . $i->id_barang_keluar . '\')">Hapus</button>';
+                    $button .= '<a href="' . site_url('edit_barang_keluar/' . $i->id_barang_keluar) . '" class="btn btn-warning btn-sm text-white">Edit</a>
+                        <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_keluar(\'' . $i->id_barang_keluar . '\')">Hapus</button>';
 
                 endif;
 

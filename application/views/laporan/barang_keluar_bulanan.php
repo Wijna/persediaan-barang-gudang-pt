@@ -91,49 +91,38 @@ $this->session->unset_userdata('alert');
         </tr>
     </thead>
     <tbody>
-        <?php
+    <?php
         $i = 1;
-        $row_barang_keluar = 1;
-        $row_tanggal = 1;
+        $total = 0;
+        $previous_tanggal = '';
+        $previous_id_barang_keluar = '';
 
         if ($data->num_rows() > 0) {
-            $total = 0;
-
             foreach ($data->result() as $dt) {
                 echo '<tr>';
-                if ($row_tanggal == 1) :
+                if ($previous_tanggal != $dt->tgl_barang_keluar) {
                     echo '<td rowspan="' . $dt->row_tanggal . '">' . $i++ . '</td>';
                     echo '<td rowspan="' . $dt->row_tanggal . '">' . tanggal_indo($dt->tgl_barang_keluar) . '</td>';
-                endif;
-                if ($row_barang_keluar == 1) :
-
+                    $previous_tanggal = $dt->tgl_barang_keluar;
+                }
+                if ($previous_id_barang_keluar != $dt->id_barang_keluar) {
                     echo '<td rowspan="' . $dt->row_barang_keluar . '">' . $dt->id_barang_keluar . '</td>';
                     echo '<td rowspan="' . $dt->row_barang_keluar . '">' . $dt->nama_pembeli . '</td>';
-                endif;
+                    $previous_id_barang_keluar = $dt->id_barang_keluar;
+                }
                 echo '<td>' . $dt->nama_barang . '</td>';
-                echo '<td>' . $dt->qty . '</td>';
+                echo '<td class="text-center">' . $dt->qty . '</td>';
                 echo '<td>' . $dt->nama_satuan . '</td>';
-                echo '<td><span class="float-left">Rp.</span><span class="float-right">' . number_format($dt->harga, 0, ',', '.') . '</span></td>';
-                echo '<td><span class="float-left">Rp.</span><span class="float-right">' . number_format(($dt->harga * $dt->qty), 0, ',', '.') . '</span></td>';
+                echo '<td class="text-center"><span class="float-left">Rp.</span><span class="float-right">' . number_format($dt->harga, 0, ',', '.') . '</span></td>';
+                echo '<td class="text-center"><span class="float-left">Rp.</span><span class="float-right">' . number_format(($dt->harga * $dt->qty), 0, ',', '.') . '</span></td>';
                 echo '</tr>';
-                if ($row_barang_keluar != $dt->row_barang_keluar) {
-                    $row_barang_keluar++;
-                } else {
-                    $row_barang_masuk = 1;
-                }
-
-                if ($row_tanggal != $dt->row_tanggal) {
-                    $row_tanggal++;
-                } else {
-                    $row_tanggal = 1;
-                }
-
+                
                 $total += ($dt->harga * $dt->qty);
             }
 
             echo '<tr>';
             echo '<td colspan="8" class="text-center"><b>Total Pemasukan</b></td>';
-            echo '<td><b><span class="float-left">Rp.</span><span class="float-right">' . number_format($total, 0, ',', '.') . '</span></b></td>';
+            echo '<td class="text-center"><b><span class="float-left">Rp.</span><span class="float-right">' . number_format($total, 0, ',', '.') . '</span></b></td>';
             echo '</tr>';
         } else {
             echo '<tr>';

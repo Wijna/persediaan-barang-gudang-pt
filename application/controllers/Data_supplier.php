@@ -63,11 +63,11 @@ class Data_supplier extends CI_Controller
             $this->form_validation->set_rules(
                 'alamat',
                 'Alamat',
-                "required|min_length[10]|max_length[255]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
+                "required|min_length[5]|max_length[100]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
                 array(
                     'required' => '{field} wajib diisi',
                     'min_length' => '{field} minimal 5 karakter',
-                    'max_length' => '{field} maksimal 30 karakter',
+                    'max_length' => '{field} maksimal 100 karakter',
                     'regex_match' => 'Data {field} yang anda masukkan tidak valid'
                 )
             );
@@ -150,11 +150,11 @@ class Data_supplier extends CI_Controller
             $this->form_validation->set_rules(
                 'alamat',
                 'Alamat',
-                "required|min_length[10]|max_length[255]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
+                "required|min_length[5]|max_length[100]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
                 array(
                     'required' => '{field} wajib diisi',
                     'min_length' => '{field} minimal 5 karakter',
-                    'max_length' => '{field} maksimal 30 karakter',
+                    'max_length' => '{field} maksimal 100 karakter',
                     'regex_match' => 'Data {field} yang anda masukkan tidak valid'
                 )
             );

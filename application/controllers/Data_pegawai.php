@@ -42,10 +42,10 @@ class Data_pegawai extends CI_Controller
             $this->form_validation->set_rules(
                 'username',
                 'Username',
-                "required|min_length[5]|max_length[20]|is_unique[tbl_user.username]|regex_match[/^[A-Za-z0-9]+$/]",
+                "required|min_length[3]|max_length[20]|is_unique[tbl_user.username]|regex_match[/^[A-Za-z0-9]+$/]",
                 array(
                     'required' => '{field} wajib diisi',
-                    'min_length' => '{field} minimal 5 karakter',
+                    'min_length' => '{field} minimal 3 karakter',
                     'max_length' => '{field} maksimal 20 karakter',
                     'is_unique' => 'Username sudah digunakan, silahkan pilih yang lain',
                     'regex_match' => '{field} hanya boleh huruf dan angka'
@@ -93,11 +93,11 @@ class Data_pegawai extends CI_Controller
             $this->form_validation->set_rules(
                 'alamat',
                 'Alamat',
-                "required|min_length[10]|max_length[255]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
+                "required|min_length[5]|max_length[100]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
                 array(
                     'required' => '{field} wajib diisi',
                     'min_length' => '{field} minimal 5 karakter',
-                    'max_length' => '{field} maksimal 30 karakter',
+                    'max_length' => '{field} maksimal 100 karakter',
                     'regex_match' => 'Data {field} yang anda masukkan tidak valid'
                 )
             );
@@ -222,9 +222,9 @@ class Data_pegawai extends CI_Controller
             $p = $pegawai->row();
             //cek apakah admin merubah username nya atau tidak
             if ($this->security->xss_clean($this->input->post('username', TRUE)) == $p->username) {
-                $rules_username = 'required|min_length[5]|max_length[20]|regex_match[/^[A-Za-z0-9]+$/]';
+                $rules_username = 'required|min_length[3]|max_length[20]|regex_match[/^[A-Za-z0-9]+$/]';
             } else {
-                $rules_username = 'required|min_length[5]|max_length[20]|is_unique[tbl_user.username]|regex_match[/^[A-Za-z0-9]+$/]';
+                $rules_username = 'required|min_length[3]|max_length[20]|is_unique[tbl_user.username]|regex_match[/^[A-Za-z0-9]+$/]';
             }
 
             $this->form_validation->set_rules(
@@ -233,7 +233,7 @@ class Data_pegawai extends CI_Controller
                 $rules_username,
                 array(
                     'required' => '{field} wajib diisi',
-                    'min_length' => '{field} minimal 5 karakter',
+                    'min_length' => '{field} minimal 3 karakter',
                     'max_length' => '{field} maksimal 20 karakter',
                     'is_unique' => 'Username sudah digunakan, silahkan pilih yang lain',
                     'regex_match' => '{field} hanya boleh huruf dan angka'
@@ -270,11 +270,11 @@ class Data_pegawai extends CI_Controller
             $this->form_validation->set_rules(
                 'alamat',
                 'Alamat',
-                "required|min_length[10]|max_length[255]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
+                "required|min_length[5]|max_length[100]|regex_match[/^[A-Z a-z.0-9-,']+$/]",
                 array(
                     'required' => '{field} wajib diisi',
                     'min_length' => '{field} minimal 5 karakter',
-                    'max_length' => '{field} maksimal 30 karakter',
+                    'max_length' => '{field} maksimal 100 karakter',
                     'regex_match' => 'Data {field} yang anda masukkan tidak valid'
                 )
             );
