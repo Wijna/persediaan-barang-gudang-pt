@@ -584,8 +584,8 @@ class Barang_masuk extends CI_Controller
                 $button = '';
                 if ($this->session->userdata('level') == 'admin' || $this->session->userdata('UserID') == $i->id_user) :
 
-                    $button .= '<a href="' . site_url('edit_barang_masuk/' . $i->id_barang_masuk) . '" class="btn btn-warning btn-sm text-white">Edit</a>
-                <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_masuk(\'' . $i->id_barang_masuk . '\')">Hapus</button>';
+                //     $button .= '<a href="' . site_url('edit_barang_masuk/' . $i->id_barang_masuk) . '" class="btn btn-warning btn-sm text-white">Edit</a>
+                // <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_masuk(\'' . $i->id_barang_masuk . '\')">Hapus</button>';
 
                 endif;
 

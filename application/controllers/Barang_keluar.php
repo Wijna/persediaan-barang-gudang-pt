@@ -722,8 +722,8 @@ class Barang_keluar extends CI_Controller
                 $button = '';
                 if ($this->session->userdata('level') == 'admin' || $this->session->userdata('UserID') == $i->id_user) :
 
-                    $button .= '<a href="' . site_url('edit_barang_keluar/' . $i->id_barang_keluar) . '" class="btn btn-warning btn-sm text-white">Edit</a>
-                        <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_keluar(\'' . $i->id_barang_keluar . '\')">Hapus</button>';
+                    // $button .= '<a href="' . site_url('edit_barang_keluar/' . $i->id_barang_keluar) . '" class="btn btn-warning btn-sm text-white">Edit</a>
+                    //     <button type="button" class="btn btn-danger btn-sm"onclick="hapus_barang_keluar(\'' . $i->id_barang_keluar . '\')">Hapus</button>';
 
                 endif;
 
